@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+{% block content %}
+		<div id="fh5co-main">
+
+			<div class="fh5co-narrow-content">
+				<div class="row">
+
+					<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+						<figure class="text-center">
+							<img src="{{ product.image.url }}" alt="{{ product.title }}" class="img-responsive">
+						</figure>
+					</div>
+					
+					<div class="col-md-8 col-md-offset-2 animate-box" data-animate-effect="fadeInLeft">
+						
+						<div class="col-md-9 col-md-push-3">
+							<h1>{{ product.title }}</h1>
+							<p>{{ product.description }}</p>
+						</div>
+
+						<div class="col-md-3 col-md-pull-9 fh5co-services">
+							<h3>Services</h3>
+							<ul>
+					{% for cat in product.cat.all %}		
+								<li>{{ cat.name }}</li>
+								{% endfor %}
+								
+							</ul>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="row work-pagination animate-box" data-animate-effect="fadeInLeft">
+					<div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+
+						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+							<a href="{{ prev_product.get_absolute_url }}"><i class="icon-long-arrow-left"></i> <span>Previous Project</span></a>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+							<a href="#"><i class="icon-th-large"></i></a>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+							<a href="{{ next_product.get_absolute_url }}"><span>Next Project</span> <i class="icon-long-arrow-right"></i></a>
+							
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+{% endblock %}
